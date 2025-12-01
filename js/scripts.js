@@ -1,4 +1,5 @@
 //  TASK  8: Modal with Pokemon Details
+// Task 10: Bootstrap & UI Libraries
 // Declaration of pokemon array - wrapped in an IIFE
 // IIFE: Encapsulate the pokemon repository and related functions
 let pokemonRepository = (function () {
@@ -31,15 +32,17 @@ let pokemonRepository = (function () {
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
     let listPokemon = document.createElement("li");
+    listPokemon.classList.add("list-group-item"); // Task 10 - Bootstrap class added here
     let button = document.createElement("button");
     button.innerText = pokemon.name;
-    button.classList.add("button-class");
+    button.classList.add("btn", "btn-primary", "w-100", "text-capitalize"); // Task 10 - Add button
     button.addEventListener("click", function () {
       showDetails(pokemon);
     });
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
   }
+
   //-----------------------
   // Modal:  Modal (Task 8) add prior to ShowDetails()
   //-----------------------
