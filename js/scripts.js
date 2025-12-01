@@ -33,12 +33,26 @@ let pokemonRepository = (function () {
     let pokemonList = document.querySelector(".pokemon-list");
     let listPokemon = document.createElement("li");
     listPokemon.classList.add("list-group-item"); // Task 10 - Bootstrap class added here
+
     let button = document.createElement("button");
     button.innerText = pokemon.name;
-    button.classList.add("btn", "btn-primary", "w-100", "text-capitalize"); // Task 10 - Add button
+    button.classList.add("btn", "btn-primary", "text-capitalize"); // Task 10 - Add button
+
+    // Bootstrap 4 modal trigger
+    button.setAttribute("data-toggle", "modal");
+    button.setAttribute("data-target", "#pokemonModal");
+
+    // Fill modal content when clicked
     button.addEventListener("click", function () {
-      showDetails(pokemon);
+      pokemonRepository.loadDetails(pokemon).then(function () {
+        document.querySelector("#pokemonModalLabel").innerText = pokemon.name;
+        document.querySelector(".modal-body").innerHTML = `
+      <img src="${pokemon.imageURL}" class="img-fluid mb-2" alt="${pokemon.name}">
+      <p>Height: ${pokemon.height}</p>
+    `;
+      });
     });
+
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
   }

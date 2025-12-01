@@ -17,12 +17,40 @@
 
 <body>
     <h1>Pokedex</h1>
-    <ul class="pokemon-list"></ul>
+    <!-- 10 - Add Bootstrap list-group to your ul in index.html -->
+    <ul class="pokemon-list list-group"></ul>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pokemonModal">
+        Launch Pokémon Modal
+    </button>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="pokemonModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pokemonModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <!-- JS will inject Pokémon details here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Polyfill Link -->
     <script src="js/promise-polyfill.js"></script>
     <script src="js/fetch-polyfill.js"></script>
 
+    <!-- Modal HTML -->
 
 
     <!-- JavaScript Link -->
