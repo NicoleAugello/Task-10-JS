@@ -17,24 +17,35 @@ body {
 
 .pokemon-list .btn {
     min-width: 140px;
-    /* consistent button size */
     margin: 3px;
-    /* spacing between buttons */
+}
+
+/* Accessibility fix: override Bootstrap's default .btn-primary */
+.btn-primary {
+    background-color: #0072ee;
+    /* darker blue for better contrast */
+    border-color: #0072ee;
+    color: #ffffff;
+    /* white text passes contrast */
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #0066d6;
+    /* darker hover/focus */
+    border-color: #0066d6;
+    color: #ffffff;
 }
 
 /* Bootstrap modal adjustments */
 .modal-dialog {
     max-width: 400px;
-    /* control popup width */
     margin: auto;
-    /* center horizontally */
 }
 
 .modal-content {
     border-radius: 8px;
-    /* softer corners */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    /* subtle shadow */
 }
 
 .modal-header {
@@ -53,4 +64,4 @@ body {
     margin: 0 auto 10px auto;
 }
 
-/* Height text
+/* Accessibility Fix */
